@@ -1,9 +1,18 @@
+//ordre séquentiel
+/*for (let i = 0; i < 1000; i++) {
+    setImmediate(_ => console.log("----------------------------------"));
+    setImmediate(_ => console.log("A"));
+    setImmediate(_ => console.log("B"));
+}*/
+/*
+//non déterministe
+for (let i = 0; i < 100; i++) {
+    setTimeout(_ => console.log("A"),0);
+    setImmediate(_ => console.log("B"));
+}*/
 
-setImmediate(_ => console.log("A"));
-setImmediate(_ => console.log("B"));
-
+//Timeout est prioritaire : dans un contexte d'I/O
 /*const fs = require('fs');
-
 fs.readFile('message.txt', 
     () => {
         setTimeout(
