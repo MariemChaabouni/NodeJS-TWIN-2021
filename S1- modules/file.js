@@ -8,11 +8,12 @@ try{
     console.log(err);
 }
 
-//asynchrone , non bloquant
+//asynchrone , non bloquantP
 fs.readFile('message.txt', 'utf-8', 
     function(err, content) {
-        console.log(content);
+        console.log(content);  
+        
     }
 );
-
+             
 console.log("Traitement suivant");
