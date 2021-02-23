@@ -4,15 +4,16 @@
     setImmediate(_ => console.log("A"));
     setImmediate(_ => console.log("B"));
 }*/
-/*
-//non déterministe
-for (let i = 0; i < 100; i++) {
+
+//non déterministe //aleatoire
+/*for (let i = 0; i < 100; i++) {
+    setImmediate(_ => console.log("----------------------------------"));
     setTimeout(_ => console.log("A"),0);
     setImmediate(_ => console.log("B"));
 }*/
 
-//Timeout est prioritaire : dans un contexte d'I/O
-/*const fs = require('fs');
+//Immediate est prioritaire : dans un contexte d'I/O
+const fs = require('fs');
 fs.readFile('message.txt', 
     () => {
         setTimeout(
@@ -29,11 +30,12 @@ fs.readFile('message.txt',
             });
     }
 );
-*/
+
 /*
 var t1 = setInterval(
     ()=>{
         console.log("log setInterval");
+
     }, 5000
 );
 
