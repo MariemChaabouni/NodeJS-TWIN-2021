@@ -1,0 +1,39 @@
+<html> 
+<body> 
+<h1> {{ title }} </h1> 
+
+<form method="post" action="/contactsUI" >
+    <label for="FullName"> Nom </label>
+    <input type="text" name="FullName" placeholder="Ajouter un nom" />
+
+    <label for="Phone"> Nom </label>
+    <input type="text" name="Phone" placeholder="Ajouter un num de tel" />
+
+    <input type="submit" value="Save" />
+</form>
+<table>
+    <thead>
+        <th> Nom </th>
+        <th> Tel </th>
+        <th> Actions </th>
+    </thead>
+    
+    <tbody>
+         {% for c in cont %} 
+           <tr align="center">
+                <td> {{ c.FullName }} </td>
+                <td> {{ c.Phone }} </td>
+                <td> 
+                <form method="post" action="/contactsUI/update/affich/{{c._id}}" >
+                    <button type="submit" value="update"> Update </button>
+                </form>
+                 <form method="post" action="/contactsUI/delete/{{c._id}}" >
+                    <button type="submit" value="delete"> Delete </button>
+                </form>
+                </td>
+           </tr>
+         {% endfor %} 
+    </tbody>
+</table>
+
+</body>

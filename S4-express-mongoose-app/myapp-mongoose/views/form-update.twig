@@ -1,0 +1,15 @@
+<html> 
+<body> 
+<h1> {{ title }} </h1> 
+
+<form method="post" action="/contactsUI/update/{{cont._id}}" >
+    <label for="FullName"> Nom </label>
+    <input type="text" name="FullName"  value="{{cont.FullName}}"/>
+
+    <label for="Phone"> Nom </label>
+    <input type="text" name="Phone"  value="{{cont.Phone}}"/>
+
+    <input type="submit" value="Update" />
+</form>
+
+</body>
