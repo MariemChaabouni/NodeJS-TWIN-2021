@@ -1,0 +1,34 @@
+<html>
+  <body>
+    <h3>Socket IO:</h3>
+    <input type="text" name="msg" id="msg" /><br />
+    <button type="submit" onclick="SendNotif()">Envoyer</button>
+
+    <script src="/jquery/jquery.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      //Demander handskake
+      var socket = io();
+
+      socket.on("message", function (data) {
+        console.log(data);
+        $("body").append("<p> " + data + "</p>");
+      });
+
+      function SendNotif() {
+        var message = document.getElementById("msg").value;
+        if (message.trim !== "") {
+          socket.emit("send-notification", message);
+        }
+      }
+
+      socket.on("new-notification", (content) => {
+        console.log(content);
+        alert(content + "  New notification!!!");
+      });
+
+
+    </script>
+</body>
+</html>
+
